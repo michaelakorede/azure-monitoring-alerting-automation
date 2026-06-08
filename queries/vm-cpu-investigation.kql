@@ -1,0 +1,6 @@
+Perf
+| where ObjectName == "Processor"
+| where CounterName == "% Processor Time"
+| summarize AverageCpu = avg(CounterValue), P95Cpu = percentile(CounterValue, 95) by Computer, bin(TimeGenerated, 5m)
+| order by TimeGenerated desc
+

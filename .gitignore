@@ -4,15 +4,16 @@ terraform/*.tfstate
 terraform/*.tfstate.*
 terraform/*.tfvars
 terraform/*.tfplan
+terraform/backend.hcl
 
 # Local config
 .env
 .env.*
 !.env.example
+.deploy.env
 
 # OS/editor
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
-

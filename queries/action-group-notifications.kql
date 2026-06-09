@@ -1,0 +1,7 @@
+AzureActivity
+| where TimeGenerated > ago(24h)
+| where CategoryValue == "Administrative"
+| where ActivityStatusValue in ("Failed", "Succeeded")
+| summarize Operations = count() by OperationNameValue, ActivityStatusValue, bin(TimeGenerated, 1h)
+| order by TimeGenerated desc
+

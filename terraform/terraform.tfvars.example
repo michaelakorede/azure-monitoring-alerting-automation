@@ -1,0 +1,23 @@
+environment        = "dev"
+location           = "eastus"
+target_resource_id = "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Compute/virtualMachines/<vm-name>"
+ops_email          = "cloud-ops@example.com"
+
+metric_alert_name        = "cpu-high"
+metric_namespace         = "Microsoft.Compute/virtualMachines"
+metric_name              = "Percentage CPU"
+metric_aggregation       = "Average"
+metric_operator          = "GreaterThan"
+metric_threshold         = 80
+metric_alert_frequency   = "PT5M"
+metric_alert_window_size = "PT10M"
+
+enable_activity_log_alert       = true
+enable_failed_request_log_alert = false
+failed_request_threshold        = 5
+
+tags = {
+  owner      = "cloud-operations"
+  costCenter = "portfolio"
+}
+

@@ -1,0 +1,7 @@
+AzureActivity
+| where TimeGenerated > ago(7d)
+| where CategoryValue == "Administrative"
+| where OperationNameValue has_any ("alert", "actionGroups", "scheduledQueryRules")
+| project TimeGenerated, OperationNameValue, ActivityStatusValue, Caller, ResourceGroup, ResourceProviderValue
+| order by TimeGenerated desc
+
